@@ -1,28 +1,42 @@
-import { useState } from 'react'
+import HeroSection from "./components/HeroSection";
+import FeaturesProcess from "./components/FeaturesProcess";
+import DemoUseCases from "./components/DemoUseCases";
+import SocialProof from "./components/SocialProof";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Navbar() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0A0F16]/80 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 text-white">
+        <a href="#" className="inline-flex items-center gap-2 text-lg font-extrabold">
+          <span className="h-6 w-6 rounded-lg bg-[#25D366]" /> WapBot
+        </a>
+        <nav className="hidden items-center gap-6 text-sm text-white/80 md:flex">
+          <a href="#features" className="hover:text-white">Features</a>
+          <a href="#demo" className="hover:text-white">Demo</a>
+          <a href="#pricing" className="hover:text-white">Pricing</a>
+          <a href="#faq" className="hover:text-white">FAQ</a>
+          <a
+            href="#pricing"
+            className="rounded-xl bg-[#25D366] px-4 py-2 font-semibold text-[#0A0F16] shadow shadow-emerald-500/20 hover:brightness-110"
           >
-            Count is {count}
-          </button>
-        </div>
+            Start Free Trial
+          </a>
+        </nav>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen scroll-smooth bg-[#0A0F16]">
+      <Navbar />
+      <HeroSection />
+      <div id="features">
+        <FeaturesProcess />
+      </div>
+      <DemoUseCases />
+      <SocialProof />
+    </div>
+  );
+}
